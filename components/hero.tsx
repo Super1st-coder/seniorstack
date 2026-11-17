@@ -18,7 +18,7 @@ export function Hero() {
           <div className="lg:col-span-7">
             <p className="hero-rise mb-6 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] text-muted">
               <span className="h-1.5 w-1.5 bg-accent" aria-hidden="true" />
-              SWITZERLANDSWITZERLAND
+              SWITZERLAND
             </p>
             <h1 className="hero-rise hero-rise-2 max-w-3xl text-[2.65rem] leading-[0.98] font-medium tracking-[-0.045em] text-balance sm:text-6xl lg:text-[4.5rem]">
               Senior Full-Stack Engineers for Swiss Companies
