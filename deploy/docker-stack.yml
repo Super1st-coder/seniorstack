@@ -1,0 +1,51 @@
+# seniorstack.ch — Docker Swarm + Traefik (AgentiaplusNet)
+# Deploy: docker stack deploy --resolve-image never -c deploy/docker-stack.yml seniorstack
+version: "3.8"
+
+services:
+  app:
+    image: seniorstack-app:latest
+    networks:
+      - AgentiaplusNet
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOSTNAME: "0.0.0.0"
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      update_config:
+        order: start-first
+        failure_action: rollback
+        monitor: 30s
+      rollback_config:
+        order: start-first
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+      labels:
+        - traefik.enable=true
+        - traefik.http.routers.seniorstack.rule=Host(`seniorstack.ch`) || Host(`www.seniorstack.ch`)
+        - traefik.http.routers.seniorstack.entrypoints=websecure
+        - traefik.http.routers.seniorstack.tls.certresolver=letsencryptresolver
+        - traefik.http.routers.seniorstack.priority=10
+        - traefik.http.routers.seniorstack.service=seniorstack
+        - traefik.http.services.seniorstack.loadbalancer.server.port=3000
+        - traefik.http.services.seniorstack.loadbalancer.passHostHeader=true
+        - traefik.http.routers.seniorstack-http.rule=Host(`seniorstack.ch`) || Host(`www.seniorstack.ch`)
+        - traefik.http.routers.seniorstack-http.entrypoints=web
+        - traefik.http.routers.seniorstack-http.middlewares=seniorstack-https-redirect
+        - traefik.http.middlewares.seniorstack-https-redirect.redirectscheme.scheme=https
+        - traefik.http.middlewares.seniorstack-https-redirect.redirectscheme.permanent=true
+
+networks:
+  AgentiaplusNet:
+    external: true
+    name: AgentiaplusNet

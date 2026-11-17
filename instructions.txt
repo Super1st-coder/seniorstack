@@ -1,0 +1,88 @@
+Create a complete, production-ready homepage for SeniorStack.ch, a Swiss senior full-stack engineering company.
+
+**Tech Stack**
+- Next.js 15 (App Router)
+- TypeScript
+- Tailwind CSS
+- Fully responsive (mobile-first)
+- Dark mode by default
+
+**Color Palette (use exactly these)**
+- Background: #0A0A0A
+- Surface / Cards: #171717
+- Borders: #262626
+- Text Primary: #FAFAFA
+- Text Secondary: #A3A3A3
+- Accent (Swiss Red): #E30613
+- Secondary Accent: #0EA5E9
+
+**Typography**
+- Modern geometric sans-serif (Inter or Geist style)
+- Strong hierarchy, excellent readability
+- Tight tracking on large headlines
+
+**Overall Design Direction**
+Ultra-clean, premium Swiss-inspired 2026 design. Minimal, confident, sophisticated and technical. Lots of whitespace, subtle borders, refined hover states. No generic gradients, no purple AI aesthetics, no stock photos of people pointing at screens.
+
+**Homepage Sections (build all of them)**
+
+1. **Navigation**
+   - Minimal sticky navbar
+   - Logo “SeniorStack” left
+   - Links: Services, Approach, About
+   - Primary button “Book a Call” on the right (accent red)
+
+2. **Hero**
+   - Full viewport height
+   - Headline: “Senior Full-Stack Engineers for Swiss Companies”
+   - Subheadline: “We design, build and scale reliable web applications with senior-level expertise and Swiss precision.”
+   - Two buttons: “Book a free strategy call” (red) + “View our approach” (ghost)
+   - Small trust line below: Switzerland-based • Senior Engineers only • Full IP Ownership
+   - Subtle refined background (abstract code or architecture feel)
+
+3. **Services**
+   Grid of 5 clean cards:
+   - Custom Web Application Development
+   - Technical Leadership & Architecture
+   - MVP to Scale
+   - Team Augmentation
+   - Legacy Modernization
+   Each card with short description and subtle hover effect.
+
+4. **Why SeniorStack**
+   - Headline: “Why companies choose SeniorStack”
+   - 4–5 key points with icons or numbers:
+     • Only senior engineers
+     • Swiss company (reliability & data protection)
+     • Direct communication
+     • Full code & IP ownership
+     • Focus on long-term maintainability
+
+5. **How We Work**
+   Clean 4-step process:
+   1. Discovery & Assessment
+   2. Clear Proposal
+   3. Iterative Development
+   4. Handover & Support
+
+6. **Tech Stack**
+   Elegant display of technologies: Next.js, React, TypeScript, Node.js, PostgreSQL, Prisma, Tailwind, Docker
+
+7. **Final CTA**
+   - Strong section
+   - Headline: “Ready to build something solid?”
+   - Subtext: “Let’s discuss your project.”
+   - Large red button “Book a Call”
+
+8. **Footer**
+   Minimal, professional footer with logo, short description, links, and “Swiss Company” mention.
+
+**Requirements**
+- Use the exact color palette above
+- Professional, premium, high-end 2026 aesthetic
+- Clean component structure
+- Excellent spacing and typography
+- All text in English
+- Make it look expensive and trustworthy
+
+Generate the full homepage code (or detailed visual design + structure) following these guidelines precisely.

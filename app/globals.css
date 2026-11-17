@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a0a;
+  --color-surface: #171717;
+  --color-border: #262626;
+  --color-border-strong: #3a3a3a;
+  --color-foreground: #fafafa;
+  --color-muted: #a3a3a3;
+  --color-accent: #e30613;
+  --color-accent-hover: #c10510;
+  --color-signal: #0ea5e9;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  background-color: #0a0a0a;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #fafafa;
+}
+
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+::selection {
+  background: #e30613;
+  color: #fafafa;
+}
+
+:focus-visible {
+  outline: 2px solid #fafafa;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 70;
+  background: #fafafa;
+  color: #0a0a0a;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(to right, #262626 1px, transparent 1px),
+    linear-gradient(to bottom, #262626 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 75% 65% at 72% 42%, #000 10%, transparent 72%);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 80px;
+  }
+}
+
+@keyframes signal-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes layer-rail {
+  0% {
+    transform: scaleY(0);
+  }
+  8% {
+    transform: scaleY(1);
+  }
+  18% {
+    transform: scaleY(1);
+  }
+  26% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-grid {
+    animation: grid-drift 36s linear infinite;
+  }
+
+  .hero-rise {
+    animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-rise-2 {
+    animation-delay: 0.08s;
+  }
+
+  .hero-rise-3 {
+    animation-delay: 0.16s;
+  }
+
+  .hero-rise-4 {
+    animation-delay: 0.24s;
+  }
+
+  .hero-rise-5 {
+    animation-delay: 0.32s;
+  }
+
+  .hero-rise-6 {
+    animation-delay: 0.16s;
+  }
+
+  .signal-dot {
+    animation: signal-pulse 2.4s ease-in-out infinite;
+  }
+
+  .stack-live > li {
+    position: relative;
+  }
+
+  .stack-live > li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    background: #e30613;
+    transform-origin: top;
+    animation: layer-rail 9s ease-in-out infinite;
+  }
+
+  .stack-live > li:nth-child(2)::before {
+    animation-delay: 1.8s;
+  }
+
+  .stack-live > li:nth-child(3)::before {
+    animation-delay: 3.6s;
+  }
+
+  .stack-live > li:nth-child(4)::before {
+    animation-delay: 5.4s;
+  }
+
+  .stack-live > li:nth-child(5)::before {
+    animation-delay: 7.2s;
+  }
+
+  .reveal {
+    animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 18%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}

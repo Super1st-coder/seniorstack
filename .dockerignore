@@ -1,0 +1,14 @@
+node_modules
+.next
+.git
+.gitignore
+*.md
+instructions.txt
+linkedin/
+vps.txt
+seniorstack mail.txt
+seniorstack.ch DNS.txt
+.env*
+.DS_Store
+npm-debug.log*
+.github
